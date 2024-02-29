@@ -32,7 +32,6 @@ function Copyright(props) {
   );
 }
 
-// TODO remove, this demo shouldn't need to reset the theme.
 
 const defaultTheme = createTheme();
 
@@ -43,6 +42,7 @@ export default function SignIn() {
   const handleSubmit = (event) => {
     event.preventDefault();
     navigate("/dashboard");
+    window.location.reload();
     const data = new FormData(event.currentTarget);
     console.log({
       email: data.get("email"),
@@ -105,6 +105,14 @@ export default function SignIn() {
               sx={{ mt: 3, mb: 2 }}
             >
               Login
+            </Button>
+            <Button
+              onClick={() => navigate("/signup")}
+              fullWidth
+              variant="contained"
+              sx={{ mt: 1, mb: 2 }}
+            >
+              Sign Up
             </Button>
             <Grid container>
               <Grid item xs>
